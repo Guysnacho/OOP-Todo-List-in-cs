@@ -11,6 +11,11 @@ class item{
 		toDo = details;
 	}
 
+	public item(){
+		complete = false;
+		toDo = "null";
+	}
+
 	//I'm going to group the set and get methods
 	private string getItem(){
 		return toDo;
@@ -31,9 +36,14 @@ class item{
 }
 
 //Todo List class - handles the adding, removing, and checking off of items
-class TodoList {
+class toDoList {
+	List<item> toDo;
 
-	public void addItem(){
+	public toDoList(){
+		toDo = new List<>();
+	}
+
+	private void addItem(){
 
 	}
 }
