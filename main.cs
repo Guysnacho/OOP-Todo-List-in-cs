@@ -21,14 +21,15 @@ class item{
 	}
 	
 	//Mutators
-	private void setItem(){
-		return toDo;
+	private void setItem(string changes){
+		toDo = changes;
 	}
 
-	private void setCompletion(){
-		return complete;
+	private void nowComplete(){
+		complete = true;
 	}
 }
+
 //Todo List class - handles the adding, removing, and checking off of items
 class TodoList {
 
