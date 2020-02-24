@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Collections.Generic;
 //Item class - handles finer attributes like if an item has been checked off or not
 class item{
@@ -41,10 +42,7 @@ class toDoList {
 	// Doesn't make sense to make it more complex than it needs to be
 	List<item> toDo = new List<item>();
 
-	public toDoList(){
-		toDo = new List<>();
-	}
-
+	//Adds an item with it's details
 	private void addItem(string details){
 		item current = new item(details);
 		toDo.Add(current);
@@ -62,5 +60,23 @@ class toDoList {
 class MainClass {
   public static void Main (string[] args) {
     Console.WriteLine ("Hello World");
+		Console.WriteLine ("Samuel Adetunji To-Do List app!\n\n");
+
+		//Switch case based menu
+		int selection = 1;
+		while(selection > 0){
+			Console.WriteLine("0 - Exit your list app\n1 - Add an item\n2 - Remove an item\n");
+			Console.Write("Please make a selection - ");
+			//@stackoverflow - (user) CodeCaster
+			selection = int.Parse(Console.ReadLine());
+			switch(selection){
+				case 0: Console.WriteLine("0 - Exiting\n");
+					break;
+				case 1: Console.WriteLine("1 - Add an item\n");
+					break;
+				case 2: Console.WriteLine("2 - Remove an item\n");
+					break;
+			}
+		}
   }
 }
