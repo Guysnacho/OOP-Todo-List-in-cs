@@ -59,6 +59,8 @@ class toDoList {
 
 class MainClass {
   public static void Main (string[] args) {
+		toDoList missions = new toDoList();
+
     Console.WriteLine ("Hello World");
 		Console.WriteLine ("Samuel Adetunji To-Do List app!\n\n");
 
@@ -72,7 +74,8 @@ class MainClass {
 			switch(selection){
 				case 0: Console.WriteLine("0 - Exiting\n");
 					break;
-				case 1: Console.WriteLine("1 - Add an item\n");
+				case 1: Console.WriteLine("\nWhat is the item - ");
+					string details = Console.ReadLine();
 					break;
 				case 2: Console.WriteLine("2 - Remove an item\n");
 					break;
