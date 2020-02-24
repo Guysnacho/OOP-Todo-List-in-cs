@@ -18,20 +18,20 @@ class item{
 	}
 
 	//I'm going to group the set and get methods
-	private string getItem(){
+	public string getItem(){
 		return toDo;
 	}
 
-	private bool isComplete(){
+	public bool isComplete(){
 		return complete;
 	}
 	
 	//Mutators
-	private void setItem(string changes){
+	public void setItem(string changes){
 		toDo = changes;
 	}
 
-	private void nowComplete(){
+	public void nowComplete(){
 		complete = true;
 	}
 }
@@ -43,14 +43,20 @@ class toDoList {
 	List<item> toDo = new List<item>();
 
 	//Adds an item with it's details
-	private void addItem(string details){
+	public void addItem(string details){
 		item current = new item(details);
 		toDo.Add(current);
 	}
 	//A default add item method
-	private void addItem(){
+	public void addItem(){
 		item current = new item();
 		toDo.Add(current);
+	}
+
+	public void Display(){
+		foreach(item quest in toDo){
+			Console.WriteLine(quest.getItem() + "\n");
+		}
 	}
 
 	//the remove method might give me trouble, maybe a hashmap would've been easier?
@@ -67,17 +73,21 @@ class MainClass {
 		//Switch case based menu
 		int selection = 1;
 		while(selection > 0){
-			Console.WriteLine("0 - Exit your list app\n1 - Add an item\n2 - Remove an item\n");
+			Console.WriteLine("0 - Exit your list app\n1 - Add an item\n2 - Remove an item\n3 - Display to-do list\n");
 			Console.Write("Please make a selection - ");
 			//@stackoverflow - (user) CodeCaster
 			selection = int.Parse(Console.ReadLine());
 			switch(selection){
 				case 0: Console.WriteLine("0 - Exiting\n");
 					break;
-				case 1: Console.WriteLine("\nWhat is the item - ");
+				case 1: Console.Write("\nWhat is the item - ");
 					string details = Console.ReadLine();
+					missions.addItem(details);
+					Console.WriteLine("\nDone!");
 					break;
 				case 2: Console.WriteLine("2 - Remove an item\n");
+					break;
+				case 3: missions.Display();
 					break;
 			}
 		}
