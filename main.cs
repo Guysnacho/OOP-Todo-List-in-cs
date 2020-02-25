@@ -52,7 +52,7 @@ class toDoList {
 		item current = new item();
 		toDo.Add(current);
 	}
-
+	//Simple display method
 	public void Display(){
 		foreach(item quest in toDo){
 			Console.WriteLine(quest.getItem() + "\n");
@@ -61,6 +61,16 @@ class toDoList {
 
 	//the remove method might give me trouble, maybe a hashmap would've been easier?
 	//Or a linkedlist
+	public void removeItem(string name){
+		foreach(item current in toDo){
+			if(current.getItem() == name){
+				toDo.Remove(current);
+				Console.WriteLine("\nDone.");
+				return;
+			}
+		}
+		Console.WriteLine("\nNot found.");
+	}
 }
 
 class MainClass {
@@ -85,7 +95,7 @@ class MainClass {
 					missions.addItem(details);
 					Console.WriteLine("\nDone!");
 					break;
-				case 2: Console.WriteLine("2 - Remove an item\n");
+				case 2: missions.removeItem(Console.ReadLine());
 					break;
 				case 3: missions.Display();
 					break;
